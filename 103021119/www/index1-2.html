@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1" >
+        <title>路線動態</title>
+<!--
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+-->
+        
+        
+        
+        <style>
+        html{
+                background-repeat: no-repeat;
+                background-image: url("d9d.jpg");
+                background-position: 50% 50%;
+                background-size:100% auto; 
+            }
+            body{
+                margin: 0;
+                padding: 0;
+                
+            }
+            .button {
+                margin-top:20px;
+               
+                background-color: #0014ff;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+               
+                cursor: pointer;
+                width: 49%;
+                float: left;
+            }
+            .button2 {
+                
+                width: 49%;
+                float:  right;
+            }
+            #Header{
+                width: 100%;
+                height:20%;
+                text-align:center;
+                line-height:80px;
+                font-size:15px;
+                font-weight:bold;
+            }
+            h1 {
+                color: #9f9f9f;
+            }
+            #body{
+                width: 100%;
+                height:60%;
+                text-align:center;
+                line-height:280px;
+                font-size:15px;
+                font-weight:bold;
+            }
+            #Footer{
+                width: 100%;
+                height:20%;
+                text-align:center;
+                line-height:80px;
+                font-size:15px;
+                font-weight:bold;
+            }
+            table{
+                background-color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="Header">
+            <h1>路線動態</h1>
+        </div>
+        <div id="Body">
+            <button type="button" class="button button" onclick="run()">85號路線(高鐵臺中站往國軍臺中總醫院)</button>
+            <button type="button" class="button button2" onclick="run2()">85號路線(國軍臺中總醫院往高鐵臺中站)</button>
+            <p id="demo"></p>
+        </div>
+        <div id="Footer">
+            <input type="button" class="button" value="回首頁" onclick="location.href='index1-1.html'">
+            <input type="button" class="button button2" value="靜態" onclick="location.href='index1-3.html'">
+        </div>
+        <script>
+            var NowDate=new Date();
+　           var h=NowDate.getHours();
+            var m=NowDate.getMinutes();
+            var e0,e1,a=0;
+           function run(){
+            var timeh = [7,9,10,11,13,14,15,16,18];
+            var timem = [50,10,30,40,10,30,20,50,10];
+            var i, txt = ""; 
+          for (i = 0; i <timeh.length; i++) {
+                 e0=timeh[i];
+                 e1=timem[i];
+                if(e0>h){
+                    break;
+                }
+            }
+    var data = '{"EstimateTime":[{"_StopID":"116","_StopName":"高鐵臺中站","_seqNo":"1","_Value":"null","_comeTime":"11:40","_IVRNO":"2908"},{"_StopID":"11177","_StopName":"光日站","_seqNo":"2","_Value":"null","_comeTime":"11:41","_IVRNO":"4176"},{"_StopID":"115","_StopName":"大慶火車站","_seqNo":"3","_Value":"null","_comeTime":"11:45","_IVRNO":"132"},{"_StopID":"114","_StopName":"中山醫學大學","_seqNo":"4","_Value":"null","_comeTime":"11:46","_IVRNO":"4034"},{"_StopID":"113","_StopName":"文心三民西路口","_seqNo":"5","_Value":"null","_comeTime":"11:47","_IVRNO":"4263"},{"_StopID":"112","_StopName":"豐樂公園","_seqNo":"6","_Value":"null","_comeTime":"11:49","_IVRNO":"26"},{"_StopID":"111","_StopName":"文心永春東路口","_seqNo":"7","_Value":"null","_comeTime":"11:49","_IVRNO":"4353"},{"_StopID":"110","_StopName":"文心南屯路口","_seqNo":"8","_Value":"0","_comeTime":"11:51","_IVRNO":"4278"},{"_StopID":"12539","_StopName":"文心五權西路口","_seqNo":"9","_Value":"2","_comeTime":"11:53","_IVRNO":"4267"},{"_StopID":"109","_StopName":"文心向心路口","_seqNo":"10","_Value":"3","_comeTime":"11:53","_IVRNO":"4272"},{"_StopID":"227","_StopName":"文心森林公園","_seqNo":"11","_Value":"4","_comeTime":"11:55","_IVRNO":"4356"},{"_StopID":"107","_StopName":"文心公益路口","_seqNo":"12","_Value":"5","_comeTime":"11:56","_IVRNO":"4268"},{"_StopID":"106","_StopName":"文心市政路口","_seqNo":"13","_Value":"7","_comeTime":"11:58","_IVRNO":"4270"},{"_StopID":"94","_StopName":"中央健保局","_seqNo":"14","_Value":"9","_comeTime":"11:59","_IVRNO":"1433"},{"_StopID":"216","_StopName":"市警局","_seqNo":"15","_Value":"10","_comeTime":"12:00","_IVRNO":"19"},{"_StopID":"117","_StopName":"文心中港路口","_seqNo":"16","_Value":"11","_comeTime":"12:02","_IVRNO":"4266"},{"_StopID":"104","_StopName":"文心四川路口","_seqNo":"17","_Value":"12","_comeTime":"12:03","_IVRNO":"4269"},{"_StopID":"103","_StopName":"文心西屯路口","_seqNo":"18","_Value":"15","_comeTime":"12:06","_IVRNO":"4273"},{"_StopID":"102","_StopName":"文心甘肅路口","_seqNo":"19","_Value":"17","_comeTime":"12:07","_IVRNO":"4271"},{"_StopID":"101","_StopName":"文華高中（文心路）","_seqNo":"20","_Value":"19","_comeTime":"12:09","_IVRNO":"4612"},{"_StopID":"1956","_StopName":"文心河南路口","_seqNo":"21","_Value":"19","_comeTime":"12:09","_IVRNO":"4275"},{"_StopID":"99","_StopName":"重慶國小","_seqNo":"22","_Value":"20","_comeTime":"12:10","_IVRNO":"230"},{"_StopID":"98","_StopName":"台灣日報","_seqNo":"23","_Value":"20","_comeTime":"12:11","_IVRNO":"229"},{"_StopID":"2683","_StopName":"文心陜西路口","_seqNo":"24","_Value":"21","_comeTime":"12:11","_IVRNO":"228"},{"_StopID":"1952","_StopName":"文心中清路口","_seqNo":"25","_Value":"24","_comeTime":"12:14","_IVRNO":"4265"},{"_StopID":"95","_StopName":"文心青島東街口","_seqNo":"26","_Value":"25","_comeTime":"12:15","_IVRNO":"4276"},{"_StopID":"92","_StopName":"文心梅川西路口","_seqNo":"27","_Value":"27","_comeTime":"12:17","_IVRNO":"4280"},{"_StopID":"641","_StopName":"文心國小","_seqNo":"28","_Value":"27","_comeTime":"12:18","_IVRNO":"224"},{"_StopID":"79","_StopName":"文心崇德路口","_seqNo":"29","_Value":"28","_comeTime":"12:19","_IVRNO":"4279"},{"_StopID":"368","_StopName":"文心熱河路口","_seqNo":"30","_Value":"30","_comeTime":"12:20","_IVRNO":"4283"},{"_StopID":"93","_StopName":"文心昌平路口","_seqNo":"31","_Value":"30","_comeTime":"12:21","_IVRNO":"4274"},{"_StopID":"89","_StopName":"四維國小","_seqNo":"32","_Value":"33","_comeTime":"12:23","_IVRNO":"102"},{"_StopID":"88","_StopName":"聯安醫院","_seqNo":"33","_Value":"34","_comeTime":"12:25","_IVRNO":"222"},{"_StopID":"87","_StopName":"東光國小","_seqNo":"34","_Value":"36","_comeTime":"12:26","_IVRNO":"4312"},{"_StopID":"86","_StopName":"三和里","_seqNo":"35","_Value":"37","_comeTime":"12:27","_IVRNO":"1077"},{"_StopID":"85","_StopName":"玫瑰新村","_seqNo":"36","_Value":"38","_comeTime":"12:29","_IVRNO":"679"},{"_StopID":"84","_StopName":"水景里","_seqNo":"37","_Value":"38","_comeTime":"12:29","_IVRNO":"484"},{"_StopID":"83","_StopName":"三和社區","_seqNo":"38","_Value":"39","_comeTime":"12:29","_IVRNO":"325"},{"_StopID":"82","_StopName":"水景頭","_seqNo":"39","_Value":"40","_comeTime":"12:30","_IVRNO":"485"},{"_StopID":"81","_StopName":"大華新村","_seqNo":"40","_Value":"40","_comeTime":"12:31","_IVRNO":"365"},{"_StopID":"80","_StopName":"建功國小","_seqNo":"41","_Value":"41","_comeTime":"12:31","_IVRNO":"703"},{"_StopID":"119","_StopName":"軍功里","_seqNo":"42","_Value":"42","_comeTime":"12:33","_IVRNO":"727"},{"_StopID":"78","_StopName":"和平里（東山路）","_seqNo":"43","_Value":"43","_comeTime":"12:33","_IVRNO":"4592"},{"_StopID":"118","_StopName":"長興塑膠","_seqNo":"44","_Value":"44","_comeTime":"12:35","_IVRNO":"687"},{"_StopID":"123","_StopName":"正覺寺","_seqNo":"45","_Value":"45","_comeTime":"12:35","_IVRNO":"555"},{"_StopID":"122","_StopName":"圓山新村","_seqNo":"46","_Value":"46","_comeTime":"12:37","_IVRNO":"854"},{"_StopID":"121","_StopName":"梨仔園","_seqNo":"47","_Value":"47","_comeTime":"12:38","_IVRNO":"768"},{"_StopID":"120","_StopName":"大坑圓環","_seqNo":"48","_Value":"48","_comeTime":"12:38","_IVRNO":"350"},{"_StopID":"77","_StopName":"中興巷","_seqNo":"49","_Value":"49","_comeTime":"12:39","_IVRNO":"434"},{"_StopID":"76","_StopName":"大坑橋","_seqNo":"50","_Value":"53","_comeTime":"12:41","_IVRNO":"351"},{"_StopID":"75","_StopName":"樂達利山莊","_seqNo":"51","_Value":"53","_comeTime":"12:41","_IVRNO":"3739"},{"_StopID":"74","_StopName":"中臺科技大學","_seqNo":"52","_Value":"54","_comeTime":"12:42","_IVRNO":"1429"},{"_StopID":"2484","_StopName":"花園新城","_seqNo":"53","_Value":"54","_comeTime":"12:42","_IVRNO":"682"},{"_StopID":"2483","_StopName":"國際青年之家","_seqNo":"54","_Value":"55","_comeTime":"12:43","_IVRNO":"755"},{"_StopID":"11224","_StopName":"廓子景賢路口","_seqNo":"55","_Value":"56","_comeTime":"12:44","_IVRNO":"4154"},{"_StopID":"847","_StopName":"廓仔巷口","_seqNo":"56","_Value":"56","_comeTime":"12:44","_IVRNO":"3079"},{"_StopID":"860","_StopName":"廓仔太原路口","_seqNo":"57","_Value":"57","_comeTime":"12:45","_IVRNO":"5035"},{"_StopID":"11225","_StopName":"華盛頓中學","_seqNo":"58","_Value":"57","_comeTime":"12:46","_IVRNO":"4155"},{"_StopID":"11226","_StopName":"大興十九接","_seqNo":"59","_Value":"58","_comeTime":"12:46","_IVRNO":"4156"},{"_StopID":"11227","_StopName":"大興十五街","_seqNo":"60","_Value":"58","_comeTime":"12:47","_IVRNO":"4161"},{"_StopID":"11228","_StopName":"屯區藝文中心(大興路)","_seqNo":"61","_Value":"59","_comeTime":"12:48","_IVRNO":"4158"},{"_StopID":"14164","_StopName":"大興五街","_seqNo":"62","_Value":"59","_comeTime":"12:48","_IVRNO":"4522"},{"_StopID":"13252","_StopName":"大興一街","_seqNo":"63","_Value":"60","_comeTime":"12:49","_IVRNO":"4344"},{"_StopID":"3853","_StopName":"國軍臺中總醫院","_seqNo":"64","_Value":"60","_comeTime":"12:50","_IVRNO":"2934"}]}';
+        var json = JSON.parse(data);
+        txt += "<table border='1'>"
+        txt += "<tr><td>" +"到站順序"+ "</td><td>"+ "站名" + "</td><td>"+"到站時間"+"</td></tr>";
+        for (i = 0; i <json.EstimateTime.length; i++) {
+            txt += "<tr><td>" + json.EstimateTime[i]._seqNo + "</td><td>"+ json.EstimateTime[i]._StopName + "</td><td>"+e0+":"+e1+"</td></tr>";
+            e1=e1+a;
+            if(e1>=60){
+                e1=e1-60;
+                e0=e0+1;
+            }
+            a = Math.floor(Math.random() * 3);
+        }
+        txt += "<tr><td colspan="+3+">"+"此為測試用資料，並非現實資訊。"+ "</td></tr>";
+        txt += "</table>"
+        document.getElementById("demo").innerHTML = txt;
+      }
+     function run2(){
+         var time2h =[6,7,8,9,11,12,13,15,16,17];
+         var time2m =[10,10,30,40,10,30,40,10,30,00];
+        var i, txt = ""; 
+          for (i = 0; i <time2h.length; i++) {
+                 e0=time2h[i];
+                 e1=time2m[i];
+                if(e0>h){
+                    break;
+                }
+            }
+    var data2 = '{"EstimateTime":[{"_StopID":"3853","_StopName":"國軍臺中總醫院","_seqNo":"1","_Value":"null","_comeTime":"11:10","_IVRNO":"2934"},{"_StopID":"13252","_StopName":"大興一街","_seqNo":"2","_Value":"null","_comeTime":"11:10","_IVRNO":"4344"},{"_StopID":"14164","_StopName":"大興五街","_seqNo":"3","_Value":"null","_comeTime":"11:11","_IVRNO":"4522"},{"_StopID":"11228","_StopName":"屯區藝文中心(大興路)","_seqNo":"4","_Value":"null","_comeTime":"11:12","_IVRNO":"4158"},{"_StopID":"11229","_StopName":"大興十五街","_seqNo":"5","_Value":"null","_comeTime":"11:12","_IVRNO":"4161"},{"_StopID":"11226","_StopName":"大興十九接","_seqNo":"6","_Value":"null","_comeTime":"11:13","_IVRNO":"4156"},{"_StopID":"11225","_StopName":"華盛頓中學","_seqNo":"7","_Value":"null","_comeTime":"11:14","_IVRNO":"4155"},{"_StopID":"886","_StopName":"廓仔太原路口","_seqNo":"8","_Value":"null","_comeTime":"11:14","_IVRNO":"5035"},{"_StopID":"887","_StopName":"廓仔巷口","_seqNo":"9","_Value":"null","_comeTime":"11:15","_IVRNO":"3079"},{"_StopID":"11224","_StopName":"廓子景賢路口","_seqNo":"10","_Value":"null","_comeTime":"11:16","_IVRNO":"4154"},{"_StopID":"2526","_StopName":"國際青年之家","_seqNo":"11","_Value":"null","_comeTime":"11:16","_IVRNO":"755"},{"_StopID":"2513","_StopName":"花園新城","_seqNo":"12","_Value":"null","_comeTime":"11:17","_IVRNO":"682"},{"_StopID":"139","_StopName":"中臺科技大學","_seqNo":"13","_Value":"null","_comeTime":"11:17","_IVRNO":"1429"},{"_StopID":"138","_StopName":"樂達利山莊","_seqNo":"14","_Value":"null","_comeTime":"11:19","_IVRNO":"3739"},{"_StopID":"124","_StopName":"大坑橋","_seqNo":"15","_Value":"null","_comeTime":"11:19","_IVRNO":"351"},{"_StopID":"136","_StopName":"大坑圓環","_seqNo":"16","_Value":"null","_comeTime":"11:20","_IVRNO":"350"},{"_StopID":"140","_StopName":"梨仔園","_seqNo":"17","_Value":"null","_comeTime":"11:21","_IVRNO":"768"},{"_StopID":"134","_StopName":"圓山新村","_seqNo":"18","_Value":"null","_comeTime":"11:22","_IVRNO":"854"},{"_StopID":"133","_StopName":"正覺寺","_seqNo":"19","_Value":"null","_comeTime":"11:23","_IVRNO":"555"},{"_StopID":"132","_StopName":"長興塑膠","_seqNo":"20","_Value":"null","_comeTime":"11:23","_IVRNO":"687"},{"_StopID":"131","_StopName":"和平里（東山路）","_seqNo":"21","_Value":"null","_comeTime":"11:24","_IVRNO":"4592"},{"_StopID":"130","_StopName":"軍功里","_seqNo":"22","_Value":"null","_comeTime":"11:25","_IVRNO":"727"},{"_StopID":"129","_StopName":"建功國小","_seqNo":"23","_Value":"null","_comeTime":"11:26","_IVRNO":"703"},{"_StopID":"128","_StopName":"大華新村","_seqNo":"24","_Value":"null","_comeTime":"11:27","_IVRNO":"365"},{"_StopID":"127","_StopName":"水景頭","_seqNo":"25","_Value":"null","_comeTime":"11:27","_IVRNO":"485"},{"_StopID":"126","_StopName":"三和社區","_seqNo":"26","_Value":"null","_comeTime":"11:28","_IVRNO":"325"},{"_StopID":"125","_StopName":"水景里","_seqNo":"27","_Value":"null","_comeTime":"11:29","_IVRNO":"484"},{"_StopID":"141","_StopName":"玫瑰新村","_seqNo":"28","_Value":"null","_comeTime":"11:30","_IVRNO":"679"},{"_StopID":"135","_StopName":"三和里","_seqNo":"29","_Value":"null","_comeTime":"11:31","_IVRNO":"1077"},{"_StopID":"137","_StopName":"東光國小","_seqNo":"30","_Value":"null","_comeTime":"11:31","_IVRNO":"4312"},{"_StopID":"151","_StopName":"聯安醫院","_seqNo":"31","_Value":"null","_comeTime":"11:32","_IVRNO":"222"},{"_StopID":"150","_StopName":"四維國小","_seqNo":"32","_Value":"null","_comeTime":"11:34","_IVRNO":"102"},{"_StopID":"377","_StopName":"文心昌平路口","_seqNo":"33","_Value":"null","_comeTime":"11:35","_IVRNO":"4274"},{"_StopID":"704","_StopName":"文心熱河路口","_seqNo":"34","_Value":"null","_comeTime":"11:38","_IVRNO":"4283"},{"_StopID":"147","_StopName":"文心崇德路口","_seqNo":"35","_Value":"null","_comeTime":"11:38","_IVRNO":"4279"},{"_StopID":"146","_StopName":"文心國小","_seqNo":"36","_Value":"null","_comeTime":"11:40","_IVRNO":"224"},{"_StopID":"145","_StopName":"文心梅川西路口","_seqNo":"37","_Value":"null","_comeTime":"11:41","_IVRNO":"4280"},{"_StopID":"144","_StopName":"文心青島東街口","_seqNo":"38","_Value":"null","_comeTime":"11:42","_IVRNO":"4276"},{"_StopID":"700","_StopName":"文心中清路口","_seqNo":"39","_Value":"null","_comeTime":"11:43","_IVRNO":"4265"},{"_StopID":"142","_StopName":"文心陜西路口","_seqNo":"40","_Value":"null","_comeTime":"11:44","_IVRNO":"228"},{"_StopID":"171","_StopName":"台灣日報","_seqNo":"41","_Value":"null","_comeTime":"11:44","_IVRNO":"229"},{"_StopID":"170","_StopName":"重慶國小","_seqNo":"42","_Value":"null","_comeTime":"11:45","_IVRNO":"230"},{"_StopID":"169","_StopName":"文心河南路口","_seqNo":"43","_Value":"null","_comeTime":"11:46","_IVRNO":"4275"},{"_StopID":"168","_StopName":"文華高中","_seqNo":"44","_Value":"null","_comeTime":"11:46","_IVRNO":"231"},{"_StopID":"167","_StopName":"文心甘肅路口","_seqNo":"45","_Value":"null","_comeTime":"11:47","_IVRNO":"4271"},{"_StopID":"166","_StopName":"文心西屯路口","_seqNo":"46","_Value":"null","_comeTime":"11:49","_IVRNO":"4273"},{"_StopID":"165","_StopName":"文心四川路口","_seqNo":"47","_Value":"null","_comeTime":"11:49","_IVRNO":"4269"},{"_StopID":"164","_StopName":"文心中港路口","_seqNo":"48","_Value":"null","_comeTime":"11:52","_IVRNO":"4266"},{"_StopID":"210","_StopName":"市警局","_seqNo":"49","_Value":"null","_comeTime":"11:53","_IVRNO":"19"},{"_StopID":"163","_StopName":"中央健保局","_seqNo":"50","_Value":"null","_comeTime":"11:54","_IVRNO":"1433"},{"_StopID":"172","_StopName":"文心市政路口","_seqNo":"51","_Value":"null","_comeTime":"11:56","_IVRNO":"4270"},{"_StopID":"162","_StopName":"文心公益路口","_seqNo":"52","_Value":"null","_comeTime":"11:57","_IVRNO":"4268"},{"_StopID":"161","_StopName":"文心森林公園","_seqNo":"53","_Value":"null","_comeTime":"11:59","_IVRNO":"4356"},{"_StopID":"160","_StopName":"文心向心路口","_seqNo":"54","_Value":"null","_comeTime":"12:01","_IVRNO":"4272"},{"_StopID":"12540","_StopName":"文心五權西路口","_seqNo":"55","_Value":"null","_comeTime":"12:03","_IVRNO":"4267"},{"_StopID":"159","_StopName":"文心南屯路口","_seqNo":"56","_Value":"null","_comeTime":"12:05","_IVRNO":"4278"},{"_StopID":"158","_StopName":"文心永春東路口","_seqNo":"57","_Value":"null","_comeTime":"12:06","_IVRNO":"4353"},{"_StopID":"157","_StopName":"豐樂公園","_seqNo":"58","_Value":"null","_comeTime":"12:08","_IVRNO":"26"},{"_StopID":"156","_StopName":"文心三民西路口","_seqNo":"59","_Value":"null","_comeTime":"12:09","_IVRNO":"4263"},{"_StopID":"155","_StopName":"中山醫學大學","_seqNo":"60","_Value":"0","_comeTime":"12:10","_IVRNO":"4034","_carId":"432-FZ"},{"_StopID":"154","_StopName":"大慶火車站","_seqNo":"61","_Value":"4","_comeTime":"12:12","_IVRNO":"132","_carId":"432-FZ"},{"_StopID":"11176","_StopName":"光日站","_seqNo":"62","_Value":"8","_comeTime":"12:17","_IVRNO":"4176","_carId":"432-FZ"},{"_StopID":"153","_StopName":"高鐵臺中站","_seqNo":"63","_Value":"11","_comeTime":"12:20","_IVRNO":"2908","_carId":"432-FZ"}]}';
+        var json = JSON.parse(data2);
+        txt += "<table border='1'>"
+        txt += "<tr><td>" +"到站順序"+ "</td><td>"+ "站名" + "</td><td>"+"到站時間"+"</td></tr>";
+        for (i = 0; i <json.EstimateTime.length; i++) {
+            txt += "<tr><td>" + json.EstimateTime[i]._seqNo + "</td><td>"+ json.EstimateTime[i]._StopName + "</td><td>"+e0+":"+e1+"</td></tr>";
+            e1=e1+a;
+            if(e1>=60){
+                e1=e1-60;
+                e0=e0+1;
+            }
+            a = Math.floor(Math.random() * 3);
+        }
+        txt += "<tr><td colspan="+3+">"+"此為測試用資料，並非現實資訊。"+ "</td></tr>";
+        txt += "</table>"        
+        document.getElementById("demo").innerHTML = txt;
+            }
+        </script>
+
+<!--
+        <div data-role="page">
+	<div data-role="header">
+		<h1>Page Title</h1>
+</div>
+	<div role="main" class="ui-content">
+		<p>Page content goes here.</p>
+	</div>
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div>
+</div>
+-->
+        
+    </body>
+</html>

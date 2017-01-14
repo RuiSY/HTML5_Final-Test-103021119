@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+       <style>
+           html{
+                background-repeat: no-repeat;
+                background-image: url("d9d.jpg");
+                background-position: 50% 50%;
+                background-size:100% auto; 
+            }
+            body{
+                margin: 0;
+                padding: 0;
+                
+            }
+            .button {
+                margin-top:20px;
+               
+                background-color: #0014ff;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+               
+                cursor: pointer;
+                width: 100%;
+                float: left;
+            }
+            .button1 {
+                 width: 49%;
+                float:  left;
+            }
+            .button2 {
+                width: 49%;
+                float:  right;
+            }
+            #Header{
+                width: 100%;
+                height:20%;
+                text-align:center;
+                line-height:80px;
+                font-size:15px;
+                font-weight:bold;
+            }
+            h1 {
+                color: #9f9f9f;
+            }
+            #body{
+                width: 100%;
+                height:60%;
+                text-align:center;
+                line-height:280px;
+                font-size:15px;
+                font-weight:bold;
+            }
+            #Footer{
+                width: 100%;
+                height:20%;
+                text-align:center;
+                line-height:80px;
+                font-size:15px;
+                font-weight:bold;
+            }
+            table{
+                background-color: #fff;
+            }
+        </style>
+    </head>
+    <bady>
+        <div id="Header">
+            <h1>151號路線</h1>
+        
+        </div>
+        <div id="Body">
+        
+            <button type="button" class="button button1" onclick="run()">台中市議會往朝陽科技大學</button>
+            <button type="button" class="button button2" onclick="run2()">朝陽科技大學往台中市議會</button>
+            <p id="demo"></p>
+    </div>
+    <div id="Footer">
+            <button class="button" onclick="history.back()">返回</button>
+    </div>
+    </bady>
+    <script>
+            var NowDate=new Date();
+　           var h=NowDate.getHours();
+            var m=NowDate.getMinutes();
+            var e0,e1,a=0;
+        var data = ["台中市議會","中央健保局","市警局","台中市政府","新光三越","秋紅谷（朝陽橋）","朝馬（臺灣大道）","朝馬2（臺灣大道）","高鐵臺中站",
+"林森中正路口","林森福新路口","亞大醫院","福新柳豐路口","新厝路550巷口","亞洲大學安藤館","王厝","光復國中小（柳豐路）","坑裡口（光復新村）","八德橋","省議會","霧峰國小","教育部國教署","霧峰郵局","霧峰","中正草湖路口","甲寅","霧峰農工","霧峰分局","全陽社區","吉峰社區","台影文化城","吉峰里","吉峰東路口","吉峰東自強路口","朝陽科技大學"];
+        var data2 =[01,02,03,04,05,06,07,08,09,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35];
+        var data1 = ["朝陽科技大學","吉峰東自強路口","吉峰東路口","吉峰里","台影文化城","吉峰社區","全陽社區","霧峰分局","霧峰農工","甲寅","中正草湖路口","霧峰","霧峰郵局","教育部國教署","霧峰國小","省議會","八德橋","坑裡口（光復新村）","光復國中小（柳豐路）","王厝","亞洲大學安藤館","新厝路550巷口","福新柳豐路口","亞大醫院","林森福新路口","林森中正路口","高鐵臺中站","朝馬2（臺灣大道）","朝馬（臺灣大道）","秋紅谷（朝陽橋）","台中市議會","中央健保局","市警局","中央健保局","台中市議會"];
+        var data3=[01,02,03,04,05,06,07,08,09,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35];
+     function run(){
+            var timeh = [6,6,6,7,7,8,8,9,9,10,10,10,11,11,11,12,12,12,13,13,14,14,15,16,16,16,17,17,18,18,18,19,20,21];
+            var timem = [00,20,50,20,50,20,50,20,40,00,25,50,05,20,50,05,20,50,20,50,20,35,50,20,00,25,50,20,40,10,25,50,40,40,10];
+            var i, txt = ""; 
+          for (i = 0; i <timeh.length; i++) {
+                 e0=timeh[i];
+                 e1=timem[i];
+                if(e0>h){
+                    break;
+                }
+            }
+    
+        txt += "<table border='1'>"
+        txt += "<tr><td>" +"到站順序"+ "</td><td>"+ "站名" + "</td><td>"+"到站時間"+"</td></tr>";
+        a = 1;
+        for (i = 0; i <data.length; i++) {
+            txt += "<tr><td>" +data2[i] + "</td><td>"+ data[i] + "</td><td>"+e0+":"+e1+"</td></tr>";
+            e1=e1+a;
+            if(e1>=60){
+                e1=e1-60;
+                e0=e0+1;
+            }
+        }
+        txt += "<tr><td colspan="+3+">"+"僅供參考，請以現實為準。"+ "</td></tr>";
+        txt += "</table>"        
+        document.getElementById("demo").innerHTML = txt;
+            }
+     function run2(){
+         var time2h =[6,6,7,7,8,8,9,9,9,10,10,10,11,11,12,12,13,13,13,14,14,15,15,16,16,16,16,17,17,18,18,19,19,20,21];
+         var time2m =[15,55,25,50,50,20,40,50,20,35,50,20,50,20,50,00,20,50,20,50,20,50,05,20,40,50,20,40,10,40,10,40,25,10];
+        var i, txt = ""; 
+          for (i = 0; i <time2h.length; i++) {
+                 e0=time2h[i];
+                 e1=time2m[i];
+                if(e0>h){
+                    break;
+                }
+            }
+        txt += "<table border='1'>"
+        txt += "<tr><td>" +"到站順序"+ "</td><td>"+ "站名" + "</td><td>"+"到站時間"+"</td></tr>";
+        a = 1;
+        for (i = 0; i <data1.length; i++) {
+            txt += "<tr><td>" + data3[i] + "</td><td>"+ data1[i] + "</td><td>"+e0+":"+e1+"</td></tr>";
+            e1=e1+a;
+            if(e1>=60){
+                e1=e1-60;
+                e0=e0+1;
+            }
+        }
+        txt += "<tr><td colspan="+3+">"+"僅供參考，請以現實為準。"+ "</td></tr>";
+        txt += "</table>"        
+        document.getElementById("demo").innerHTML = txt;
+            }
+        </script>
+</html>
